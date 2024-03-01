@@ -296,6 +296,7 @@ function Iframe( {
 				iframeDocument.documentElement.style.transform = '';
 				iframeDocument.documentElement.style.marginTop = '';
 				iframeDocument.documentElement.style.marginBottom = '';
+				iframeDocument.body.style.height = '';
 			};
 		}
 	}, [ scale, frameSize, marginFromScaling, iframeDocument ] );
