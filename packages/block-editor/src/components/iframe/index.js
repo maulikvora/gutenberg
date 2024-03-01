@@ -149,7 +149,7 @@ function Iframe( {
 					contentWidth
 			  )
 			: 1;
-	const frameSize = isZoomOutMode ? 100 : 0;
+	const frameSize = isZoomOutMode ? 20 : 0;
 
 	const setRef = useRefEffect( ( node ) => {
 		node._load = () => {
@@ -288,6 +288,10 @@ function Iframe( {
 			iframeDocument.documentElement.style.marginBottom = `${
 				-marginFromScaling * 2 + frameSize
 			}px`;
+			iframeDocument.body.style.height = `${ Math.floor(
+				( iframeDocument.defaultView.innerHeight - 2 * frameSize ) /
+					scale
+			) }px`;
 			return () => {
 				iframeDocument.documentElement.style.transform = '';
 				iframeDocument.documentElement.style.marginTop = '';
