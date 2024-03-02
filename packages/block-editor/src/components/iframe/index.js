@@ -288,10 +288,15 @@ function Iframe( {
 			iframeDocument.documentElement.style.marginBottom = `${
 				-marginFromScaling * 2 + frameSize
 			}px`;
-			iframeDocument.body.style.height = `${ Math.floor(
-				( iframeDocument.defaultView.innerHeight - 2 * frameSize ) /
-					scale
-			) }px`;
+			if (
+				iframeDocument.defaultView.innerHeight >
+				contentHeight * scale
+			) {
+				iframeDocument.body.style.height = `${ Math.floor(
+					( iframeDocument.defaultView.innerHeight - 2 * frameSize ) /
+						scale
+				) }px`;
+			}
 			return () => {
 				iframeDocument.documentElement.style.transform = '';
 				iframeDocument.documentElement.style.marginTop = '';
@@ -299,7 +304,7 @@ function Iframe( {
 				iframeDocument.body.style.height = '';
 			};
 		}
-	}, [ scale, frameSize, marginFromScaling, iframeDocument ] );
+	}, [ scale, frameSize, marginFromScaling, iframeDocument, contentHeight ] );
 
 	// Make sure to not render the before and after focusable div elements in view
 	// mode. They're only needed to capture focus in edit mode.
