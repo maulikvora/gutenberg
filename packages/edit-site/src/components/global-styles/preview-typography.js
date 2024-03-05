@@ -50,6 +50,11 @@ export default function PreviewTypography( { fontSize, variation } ) {
 				delay: 0.3,
 				type: 'tween',
 			} }
+			style={ {
+				fontSize: '22px',
+				lineHeight: '44px',
+				textAlign: 'center',
+			} }
 		>
 			<span style={ headingPreviewStyle }>
 				{ _x( 'A', 'Uppercase letter A' ) }
