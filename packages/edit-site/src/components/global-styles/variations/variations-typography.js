@@ -34,6 +34,10 @@ export default function TypographyVariations() {
 
 	const { base } = useContext( GlobalStylesContext );
 
+	if ( ! typographyVariations.length ) {
+		return null;
+	}
+
 	/*
 	 * Filter duplicate variations based on the font families used in the variation.
 	 */
