@@ -24,10 +24,6 @@ function ScreenTypography() {
 	const typographyVariations =
 		useCurrentMergeThemeStyleVariationsWithUserConfig( {
 			property: 'typography',
-			filter: ( variation ) =>
-				variation?.settings?.typography?.fontFamilies &&
-				Object.keys( variation?.settings?.typography?.fontFamilies )
-					.length,
 		} );
 
 	return (

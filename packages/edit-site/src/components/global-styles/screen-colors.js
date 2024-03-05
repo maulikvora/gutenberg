@@ -33,9 +33,6 @@ function ScreenColors() {
 
 	const colorVariations = useCurrentMergeThemeStyleVariationsWithUserConfig( {
 		property: 'color',
-		filter: ( variation ) =>
-			variation?.settings?.color &&
-			Object.keys( variation?.settings?.color ).length,
 	} );
 	return (
 		<>
